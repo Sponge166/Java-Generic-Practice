@@ -9,17 +9,17 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-public class collectionApply {
+public class CollectionApply {
 
 	public static void main(String[] args) {
-		List<Integer> list = Arrays.asList(1,2,3,1);
+		List<Integer> list = Arrays.asList(1,2,3,1); // [1, 2, 3, 1]
 //		Function<Integer, Integer> add1 = x -> x+1;
 
 		ArrayList<Double> al = applyToAll(list, x -> x.doubleValue(), ArrayList::new);
 		
 		al.add(1.0);
 		
-		System.out.println(al);
+		System.out.println(al); // [1.0, 2.0, 3.0, 1.0, 1.0]
 	}
 	
 	public static <T, U, C extends Collection<U>> C applyToAll(Collection<? extends T> src, Function<? super T, ? extends U> func, Supplier<? extends C> s){
